@@ -12,6 +12,7 @@ enum MessageType {
     GET_ACCOUNTS = 26;
     GET_BROWSERS = 5;
     GET_CLIPBOARD = 6;
+    GET_WHITELIST = 29;
     GET_DISPLAY = 19;
     GET_PROPERTIES = 7;
     GET_RINGER_MODE = 27;
@@ -19,6 +20,7 @@ enum MessageType {
     GET_VERSION = 8;
     GET_WIFI_STATUS = 23;
     SET_CLIPBOARD = 9;
+    SET_WHITELIST = 30;
     SET_KEYGUARD_STATE = 10;
     SET_RINGER_MODE = 21;
     SET_ROTATION = 12;
@@ -131,6 +133,29 @@ message GetClipboardRequest {
 message GetClipboardResponse {
     required bool success = 1;
     optional ClipboardType type = 2;
+    optional string text = 3;
+}
+
+enum WhiteListType {
+    LIST = 1;
+}
+
+message SetWhiteListRequest {
+    required WhiteListType type = 1;
+    optional string text = 2;
+}
+
+message SetWhiteListResponse {
+    required bool success = 1;
+}
+
+message GetWhiteListRequest {
+    required WhiteListType type = 1;
+}
+
+message GetWhiteListResponse {
+    required bool success = 1;
+    optional WhiteListType type = 2;
     optional string text = 3;
 }
 

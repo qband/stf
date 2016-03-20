@@ -2,6 +2,7 @@
 
 enum MessageType {
   CopyMessage                = 33;
+  CopyWhiteList              = 92;
   DeviceIntroductionMessage  = 74;
   DeviceAbsentMessage        = 1;
   DeviceIdentityMessage      = 2;
@@ -28,6 +29,7 @@ enum MessageType {
   LeaveGroupMessage          = 15;
   LogcatApplyFiltersMessage  = 16;
   PasteMessage               = 32;
+  PasteWhiteList             = 93;
   ProbeMessage               = 17;
   ShellCommandMessage        = 18;
   ShellKeepAliveMessage      = 19;
@@ -342,6 +344,13 @@ message PasteMessage {
 }
 
 message CopyMessage {
+}
+
+message PasteWhiteList {
+  required string text = 1;
+}
+
+message CopyWhiteList {
 }
 
 message KeyDownMessage {
